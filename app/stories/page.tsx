@@ -14,22 +14,14 @@ export default async function StoriesPage() {
     <div className="min-h-screen bg-[#F5F2ED]">
       <HeaderSection />
 
-      {/* Section 1 – Hero: warm gradient strip, text left + image right (Stories-only look) */}
-      <section className="mx-auto max-w-6xl px-6 pt-10 md:pt-14 pb-16 md:pb-20">
-        <div className="rounded-3xl overflow-hidden flex flex-col lg:flex-row min-h-[420px] md:min-h-[480px]" style={{ background: "linear-gradient(120deg, #8B691E 0%, #BF822E 40%, #D99F4F 100%)", boxShadow: "0 24px 48px rgba(139, 105, 30, 0.25)" }}>
-          <div className="flex-1 flex flex-col justify-center p-8 md:p-12 lg:p-14 order-2 lg:order-1">
-            <p className="text-white/80 font-semibold text-xs uppercase tracking-[0.25em] mb-4">
-              {t("stories.heroLabel")}
-            </p>
-            <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-5 leading-tight">
-              {t("stories.heroHeading")}
-            </h1>
-            <p className="text-white/90 text-lg md:text-xl leading-relaxed max-w-lg">
-              {t("stories.loveStoriesSubtitle")}
-            </p>
-          </div>
-          <div className="flex-1 relative min-h-[280px] lg:min-h-0 order-1 lg:order-2">
-            <div className="absolute inset-4 md:inset-6 lg:inset-8 rounded-2xl overflow-hidden shadow-2xl">
+      {/* Section 1 – Hero: diagonal split – image left (slanted right edge), gradient right */}
+      <section className="mx-auto max-w-7xl px-4 md:px-6 pt-10 md:pt-14 pb-16 md:pb-20">
+        <div className="relative min-h-[480px] md:min-h-[520px] flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.2)]">
+          {/* Image – left, diagonal right edge on desktop */}
+          <div className="relative w-full lg:w-[50%] h-[300px] sm:h-[360px] lg:h-[520px] order-1">
+            <div
+              className="absolute inset-0 overflow-hidden [clip-path:polygon(0_0,100%_0,100%_90%,0_100%)] lg:[clip-path:polygon(0_0,100%_0,88%_100%,0_100%)]"
+            >
               <Image
                 src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1200&q=95"
                 alt="Couple together"
@@ -38,7 +30,25 @@ export default async function StoriesPage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent pointer-events-none" aria-hidden />
             </div>
+          </div>
+          {/* Gradient + text – right side */}
+          <div
+            className="flex-1 flex flex-col justify-center p-8 md:p-12 lg:p-16 order-2 min-h-[280px] lg:min-h-0"
+            style={{
+              background: "linear-gradient(160deg, #5c3d1e 0%, #8B691E 35%, #BF822E 75%, #D99F4F 100%)",
+            }}
+          >
+            <p className="text-white/90 font-semibold text-xs uppercase tracking-[0.2em] mb-3">
+              {t("stories.heroLabel")}
+            </p>
+            <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-5 leading-tight">
+              {t("stories.heroHeading")}
+            </h1>
+            <p className="text-white/95 text-lg md:text-xl leading-relaxed max-w-lg">
+              {t("stories.loveStoriesSubtitle")}
+            </p>
           </div>
         </div>
       </section>
