@@ -85,7 +85,7 @@ export default function HeaderSection() {
           dir={locale === "ar" ? "rtl" : "ltr"}
         >
           <Link
-            href="#"
+            href="/about"
             className={navLinkClass("/about")}
             style={navLinkStyle("/about")}
             onMouseEnter={(e) => {
@@ -96,7 +96,7 @@ export default function HeaderSection() {
             {t("nav.about")}
           </Link>
           <Link
-            href="#"
+            href="/stories"
             className={navLinkClass("/stories")}
             style={navLinkStyle("/stories")}
             onMouseEnter={(e) => {
@@ -225,14 +225,14 @@ export default function HeaderSection() {
           >
             <nav className="flex flex-col gap-6 font-semibold uppercase tracking-wide text-black text-[16px]" dir={locale === "ar" ? "rtl" : "ltr"}>
               <Link
-                href="#"
+                href="/about"
                 className="hover:opacity-80 transition-opacity py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t("nav.about")}
               </Link>
               <Link
-                href="#"
+                href="/stories"
                 className="hover:opacity-80 transition-opacity py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >

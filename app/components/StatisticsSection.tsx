@@ -14,23 +14,25 @@ export default function StatisticsSection() {
   const isAr = locale === "ar";
   const formatNumber = (num: number) =>
     isAr ? toArabicDigits(num.toLocaleString("en-US")) + "+" : num.toLocaleString("en-US") + "+";
+  const formatNumberRef = useRef(formatNumber);
+  formatNumberRef.current = formatNumber;
+
   const sectionRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
   const shouldAnimate = useShouldAnimate();
 
-  // When locale changes, update counter display to new number format (Arabic vs Western) without needing refresh
+  // When locale changes, update counter display so English always shows Western digits, Arabic shows Arabic digits
   useEffect(() => {
     if (!hasAnimated || !statsRef.current) return;
     const n1 = statsRef.current.querySelector(".number-1") as HTMLElement | null;
     const n2 = statsRef.current.querySelector(".number-2") as HTMLElement | null;
     const n3 = statsRef.current.querySelector(".number-3") as HTMLElement | null;
-    const fmt = (n: number) =>
-      isAr ? toArabicDigits(n.toLocaleString("en-US")) + "+" : n.toLocaleString("en-US") + "+";
+    const fmt = formatNumberRef.current;
     if (n1) n1.textContent = fmt(10000);
     if (n2) n2.textContent = fmt(100);
     if (n3) n3.textContent = fmt(100000);
-  }, [locale, hasAnimated, isAr]);
+  }, [locale, hasAnimated]);
 
   useEffect(() => {
     if (!sectionRef.current || !statsRef.current || hasAnimated) return;
@@ -40,9 +42,10 @@ export default function StatisticsSection() {
     const n3 = statsRef.current.querySelector(".number-3") as HTMLElement | null;
 
     if (!shouldAnimate) {
-      if (n1) n1.textContent = formatNumber(10000);
-      if (n2) n2.textContent = formatNumber(100);
-      if (n3) n3.textContent = formatNumber(100000);
+      const fmt = formatNumberRef.current;
+      if (n1) n1.textContent = fmt(10000);
+      if (n2) n2.textContent = fmt(100);
+      if (n3) n3.textContent = fmt(100000);
       setHasAnimated(true);
       return;
     }
@@ -53,7 +56,9 @@ export default function StatisticsSection() {
         value: target,
         duration,
         ease: "power2.out",
-        onUpdate: () => { el.textContent = formatNumber(Math.floor(obj.value)); },
+        onUpdate: () => {
+          el.textContent = formatNumberRef.current(Math.floor(obj.value));
+        },
       });
     };
 
