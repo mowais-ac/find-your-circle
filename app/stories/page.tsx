@@ -23,12 +23,14 @@ export default async function StoriesPage() {
               className="absolute inset-0 overflow-hidden [clip-path:polygon(0_0,100%_0,100%_90%,0_100%)] lg:[clip-path:polygon(0_0,100%_0,88%_100%,0_100%)]"
             >
               <Image
-                src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1200&q=95"
-                alt="Couple together"
+                src="/story-telling.jpg"
+                alt="Community members connecting and sharing stories"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
+                quality={100}
+                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent pointer-events-none" aria-hidden />
             </div>
