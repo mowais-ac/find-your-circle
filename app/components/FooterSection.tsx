@@ -104,8 +104,8 @@ export default function FooterSection() {
               <h3 className="text-black font-semibold uppercase tracking-wide text-sm mb-3">{t("footer.quickLink")}</h3>
               <nav className={`flex flex-col gap-2 text-sm ${isAr ? "items-center text-center" : ""}`}>
                 <Link href="/" className="text-black/80 hover:text-[#BF822E] transition-colors font-medium">{t("footer.home")}</Link>
-                <Link href="#" className="text-black/80 hover:text-[#BF822E] transition-colors font-medium">{t("footer.about")}</Link>
-                <Link href="#" className="text-black/80 hover:text-[#BF822E] transition-colors font-medium">{t("footer.stories")}</Link>
+                <Link href="/about" className="text-black/80 hover:text-[#BF822E] transition-colors font-medium">{t("footer.about")}</Link>
+                <Link href="/stories" className="text-black/80 hover:text-[#BF822E] transition-colors font-medium">{t("footer.stories")}</Link>
                 <Link href="/store" className="text-black/80 hover:text-[#BF822E] transition-colors font-medium">{t("footer.store")}</Link>
                 <Link href="/contact-us" className="text-black/80 hover:text-[#BF822E] transition-colors font-medium">{t("footer.contactUs")}</Link>
                 <a href="/#download" className="text-black/80 hover:text-[#BF822E] transition-colors font-medium">{t("nav.download")}</a>
