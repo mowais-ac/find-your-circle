@@ -31,10 +31,10 @@ export default async function StoriesPage() {
           <div className="flex-1 relative min-h-[280px] lg:min-h-0 order-1 lg:order-2">
             <div className="absolute inset-4 md:inset-6 lg:inset-8 rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=85"
+                src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1200&q=95"
                 alt="Couple together"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
