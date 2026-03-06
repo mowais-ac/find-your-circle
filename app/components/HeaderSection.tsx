@@ -129,7 +129,7 @@ export default function HeaderSection() {
             {t("nav.contactUs")}
           </Link>
           <Link
-            href="/#download"
+            href="#"
             className="text-black px-4 py-2 rounded-full transition-all duration-150 hover:text-white hover:shadow-md"
             style={{ background: "transparent" }}
             onMouseEnter={(e) => {
@@ -139,7 +139,7 @@ export default function HeaderSection() {
               e.currentTarget.style.background = "transparent";
             }}
           >
-            {t("nav.download")}
+            {t("nav.blogs")}
           </Link>
         </nav>
 
@@ -252,13 +252,13 @@ export default function HeaderSection() {
               >
                 {t("nav.contactUs")}
               </Link>
-              <a
+              <Link
+                href="#"
                 className="hover:opacity-80 transition-opacity py-2"
-                href="/#download"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {t("nav.download")}
-              </a>
+                {t("nav.blogs")}
+              </Link>
             </nav>
           </div>
         </div>
