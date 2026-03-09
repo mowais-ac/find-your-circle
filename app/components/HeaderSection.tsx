@@ -129,7 +129,7 @@ export default function HeaderSection() {
             {t("nav.contactUs")}
           </Link>
           <Link
-            href="#"
+            href="/blogs"
             className="text-black px-4 py-2 rounded-full transition-all duration-150 hover:text-white hover:shadow-md"
             style={{ background: "transparent" }}
             onMouseEnter={(e) => {
@@ -253,7 +253,7 @@ export default function HeaderSection() {
                 {t("nav.contactUs")}
               </Link>
               <Link
-                href="#"
+                href="/blogs"
                 className="hover:opacity-80 transition-opacity py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
