@@ -78,12 +78,9 @@ export default function HeaderSection() {
             />
           </div>
         </Link>
-
-        {/* Right: Nav links | Translation | Social icons | Menu icon */}
-        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
-          {/* Nav Links - Desktop Only */}
+                {/* Nav Links - Desktop Only */}
           <nav
-            className="hidden md:flex items-center gap-2 lg:gap-1 text-[16px] font-semibold uppercase tracking-wide"
+            className="hidden md:flex  items-center gap-2 lg:gap-1 text-[16px] font-semibold uppercase tracking-wide"
             dir={locale === "ar" ? "rtl" : "ltr"}
           >
             <Link
@@ -131,6 +128,10 @@ export default function HeaderSection() {
               {t("nav.contactUs")}
             </Link>
           </nav>
+
+        {/* Right: Nav links | Translation | Social icons | Menu icon */}
+        <div className="flex items-center  gap-2 sm:gap-13 flex-shrink-0 min-w-0">
+  
           {/* Language selector - menu ke baad, social se pehle */}
           <div
             className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#F5F2ED] px-2 py-1.5 sm:px-3 sm:py-2 border border-[#E8E5E0]"
