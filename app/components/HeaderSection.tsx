@@ -59,8 +59,8 @@ export default function HeaderSection() {
   return (
     <>
       <header className="flex items-center justify-between gap-4 bg-white px-4 sm:px-6 py-2 md:py-2 md:px-24 border-b border-[#E8E5E0]">
-        {/* Logo - Left */}
-        <Link href={"/"} className="flex items-center flex-shrink-0 md:ml-4">
+        {/* Left: Logo only */}
+        <Link href={"/"} className="flex items-center flex-shrink-0">
           <div
             className="animate-rotate"
             style={{
@@ -78,87 +78,72 @@ export default function HeaderSection() {
             />
           </div>
         </Link>
+                {/* Nav Links - Desktop Only */}
+          <nav
+            className="hidden md:flex  items-center gap-2 lg:gap-1 text-[16px] font-semibold uppercase tracking-wide"
+            dir={locale === "ar" ? "rtl" : "ltr"}
+          >
+            <Link
+              href="/about"
+              className={navLinkClass("/about")}
+              style={navLinkStyle("/about")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = activeStyle;
+              }}
+              onMouseLeave={onNavMouseLeave("/about")}
+            >
+              {t("nav.about")}
+            </Link>
+            <Link
+              href="/stories"
+              className={navLinkClass("/stories")}
+              style={navLinkStyle("/stories")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = activeStyle;
+              }}
+              onMouseLeave={onNavMouseLeave("/stories")}
+            >
+              {t("nav.stories")}
+            </Link>
+            <Link
+              href="/store"
+              className={navLinkClass("/store")}
+              style={navLinkStyle("/store")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = activeStyle;
+              }}
+              onMouseLeave={onNavMouseLeave("/store")}
+            >
+              {t("nav.store")}
+            </Link>
+            <Link
+              href="/contact-us"
+              className={navLinkClass("/contact-us")}
+              style={navLinkStyle("/contact-us")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = activeStyle;
+              }}
+              onMouseLeave={onNavMouseLeave("/contact-us")}
+            >
+              {t("nav.contactUs")}
+            </Link>
+          </nav>
 
-        {/* Nav Links - Desktop Only, Centered. Arabic: start from right (RTL). */}
-        <nav
-          className="hidden md:flex flex-1 justify-center items-center gap-2 lg:gap-1 text-[16px] font-semibold uppercase tracking-wide"
-          dir={locale === "ar" ? "rtl" : "ltr"}
-        >
-          <Link
-            href="/about"
-            className={navLinkClass("/about")}
-            style={navLinkStyle("/about")}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = activeStyle;
-            }}
-            onMouseLeave={onNavMouseLeave("/about")}
-          >
-            {t("nav.about")}
-          </Link>
-          <Link
-            href="/stories"
-            className={navLinkClass("/stories")}
-            style={navLinkStyle("/stories")}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = activeStyle;
-            }}
-            onMouseLeave={onNavMouseLeave("/stories")}
-          >
-            {t("nav.stories")}
-          </Link>
-          <Link
-            href="/store"
-            className={navLinkClass("/store")}
-            style={navLinkStyle("/store")}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = activeStyle;
-            }}
-            onMouseLeave={onNavMouseLeave("/store")}
-          >
-            {t("nav.store")}
-          </Link>
-          <Link
-            href="/contact-us"
-            className={navLinkClass("/contact-us")}
-            style={navLinkStyle("/contact-us")}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = activeStyle;
-            }}
-            onMouseLeave={onNavMouseLeave("/contact-us")}
-          >
-            {t("nav.contactUs")}
-          </Link>
-          <Link
-            href="/blogs"
-            className="text-black px-4 py-2 rounded-full transition-all duration-150 hover:text-white hover:shadow-md"
-            style={{ background: "transparent" }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = activeStyle;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            {t("nav.blogs")}
-          </Link>
-        </nav>
-
-        {/* Right: Language + Menu icon (dono header mein; mobile par language bhi yahi) */}
-        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-          {/* Language selector - sab screens par header mein, menu icon ke saath */}
+        {/* Right: Nav links | Translation | Social icons | Menu icon */}
+        <div className="flex items-center  gap-2 sm:gap-13 flex-shrink-0 min-w-0">
+  
+          {/* Language selector - menu ke baad, social se pehle */}
           <div
             className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#F5F2ED] px-2 py-1.5 sm:px-3 sm:py-2 border border-[#E8E5E0]"
             role="group"
             aria-label={t("nav.aria.language")}
           >
-            <GlobeIcon className="w-3 h-3 sm:w-4 sm:h-4 md:block hidden text-[#5A5A5A] flex-shrink-0" />
+            <GlobeIcon className="w-3 h-3 sm:w-4 sm:h-4 text-[#5A5A5A] flex-shrink-0" />
             <button
               type="button"
               onClick={() => switchLocale("en")}
               className={`text-xs sm:text-sm font-semibold uppercase tracking-wide px-1.5 sm:px-2 py-0.5 rounded transition-colors ${
-                locale === "en"
-                  ? "text-white"
-                  : "text-[#5A5A5A] hover:text-[#2d2d2d]"
+                locale === "en" ? "text-white" : "text-[#5A5A5A] hover:text-[#2d2d2d]"
               }`}
               style={locale === "en" ? { background: "linear-gradient(to bottom, #D99F4F, #BF822E)" } : undefined}
             >
@@ -169,14 +154,27 @@ export default function HeaderSection() {
               type="button"
               onClick={() => switchLocale("ar")}
               className={`text-xs sm:text-sm font-semibold uppercase tracking-wide px-1.5 sm:px-2 py-0.5 rounded transition-colors ${
-                locale === "ar"
-                  ? "text-white"
-                  : "text-[#5A5A5A] hover:text-[#2d2d2d]"
+                locale === "ar" ? "text-white" : "text-[#5A5A5A] hover:text-[#2d2d2d]"
               }`}
               style={locale === "ar" ? { background: "linear-gradient(to bottom, #D99F4F, #BF822E)" } : undefined}
             >
               عربي
             </button>
+          </div>
+          {/* Social icons - desktop only (mobile par menu ke andar dikhenge) */}
+          <div className="hidden md:flex items-center gap-1 sm:gap-1.5">
+            <a href="https://www.facebook.com/thecirclesociety.ae/" target="_blank" rel="noopener noreferrer" className="p-1.5 sm:p-2 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="Facebook">
+              <Image src="/Vector (19).svg" alt="" width={18} height={18} className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+            <a href="https://www.instagram.com/thecirclesociety.ae/" target="_blank" rel="noopener noreferrer" className="p-1.5 sm:p-2 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="Instagram">
+              <Image src="/Vector (18).svg" alt="" width={18} height={18} className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+            <a href="https://www.tiktok.com/@thecirclesociety.ae" target="_blank" rel="noopener noreferrer" className="p-1.5 sm:p-2 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="TikTok">
+              <Image src="/Vector (17).svg" alt="" width={18} height={18} className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+            <a href="https://www.linkedin.com/company/thecirclesocietyae/about/" target="_blank" rel="noopener noreferrer" className="p-1.5 sm:p-2 rounded-lg bg-black/5 hover:bg-black/10 transition hidden sm:inline-flex" aria-label="LinkedIn">
+              <Image src="/Vector (21).svg" alt="" width={18} height={18} className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
           </div>
 
           <button
@@ -252,14 +250,22 @@ export default function HeaderSection() {
               >
                 {t("nav.contactUs")}
               </Link>
-              <Link
-                href="/blogs"
-                className="hover:opacity-80 transition-opacity py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t("nav.blogs")}
-              </Link>
             </nav>
+            {/* Social icons - mobile menu ke andar */}
+            <div className="flex items-center gap-3 mt-6 pt-6 border-t border-[#E8E5E0]">
+              <a href="https://www.facebook.com/thecirclesociety.ae/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="Facebook">
+                <Image src="/Vector (19).svg" alt="" width={20} height={20} className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com/thecirclesociety.ae/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="Instagram">
+                <Image src="/Vector (18).svg" alt="" width={20} height={20} className="w-5 h-5" />
+              </a>
+              <a href="https://www.tiktok.com/@thecirclesociety.ae" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="TikTok">
+                <Image src="/Vector (17).svg" alt="" width={20} height={20} className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/company/thecirclesocietyae/about/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="LinkedIn">
+                <Image src="/Vector (21).svg" alt="" width={20} height={20} className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
     </>
