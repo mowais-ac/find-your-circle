@@ -161,8 +161,8 @@ export default function HeaderSection() {
               عربي
             </button>
           </div>
-          {/* Social icons - desktop & mobile */}
-          <div className="flex items-center gap-1 sm:gap-1.5">
+          {/* Social icons - desktop only (mobile par menu ke andar dikhenge) */}
+          <div className="hidden md:flex items-center gap-1 sm:gap-1.5">
             <a href="https://www.facebook.com/thecirclesociety.ae/" target="_blank" rel="noopener noreferrer" className="p-1.5 sm:p-2 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="Facebook">
               <Image src="/Vector (19).svg" alt="" width={18} height={18} className="w-4 h-4 md:w-5 md:h-5" />
             </a>
@@ -251,6 +251,21 @@ export default function HeaderSection() {
                 {t("nav.contactUs")}
               </Link>
             </nav>
+            {/* Social icons - mobile menu ke andar */}
+            <div className="flex items-center gap-3 mt-6 pt-6 border-t border-[#E8E5E0]">
+              <a href="https://www.facebook.com/thecirclesociety.ae/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="Facebook">
+                <Image src="/Vector (19).svg" alt="" width={20} height={20} className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com/thecirclesociety.ae/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="Instagram">
+                <Image src="/Vector (18).svg" alt="" width={20} height={20} className="w-5 h-5" />
+              </a>
+              <a href="https://www.tiktok.com/@thecirclesociety.ae" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="TikTok">
+                <Image src="/Vector (17).svg" alt="" width={20} height={20} className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/company/thecirclesocietyae/about/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-black/5 hover:bg-black/10 transition" aria-label="LinkedIn">
+                <Image src="/Vector (21).svg" alt="" width={20} height={20} className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
     </>
