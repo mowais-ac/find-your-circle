@@ -222,7 +222,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "contact.sendMessageDesc":
       "Fill out the form below and we'll get back to you within 24–48 hours.",
     "contact.emailLabel": "Email",
-    "contact.supportEmail": "mowaisinc@gmail.com",
+    "contact.supportEmail": "support@circlesociety.ae",
 
     // Store page
     "store.title": "Store",
@@ -595,7 +595,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "contact.sendMessageTitle": "إرسال رسالة",
     "contact.sendMessageDesc": "املأ النموذج أدناه وسنرد عليك خلال ٢٤–٤٨ ساعة.",
     "contact.emailLabel": "البريد الإلكتروني",
-    "contact.supportEmail": "mowaisinc@gmail.com",
+    "contact.supportEmail": "support@circlesociety.ae",
 
     "store.title": "المتجر",
     "store.subtitle": "استكشف المنتجات والمزيد من مجتمع الدائرة.",
