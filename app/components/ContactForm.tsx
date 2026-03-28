@@ -19,7 +19,9 @@ export default function ContactForm() {
     const err: Record<string, string> = {};
     if (!name.trim()) err.name = t("form.errorNameRequired");
     if (!email.trim()) err.email = t("form.errorEmailRequired");
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) err.email = t("form.errorEmailInvalid");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      err.email = t("form.errorEmailInvalid");
+    if (!phone.trim()) err.phone = t("form.errorPhoneRequired");
     if (!message.trim()) err.message = t("form.errorMessageRequired");
     return err;
   };
@@ -33,7 +35,20 @@ export default function ContactForm() {
     if (!isValid) return;
     setStatus("submitting");
     try {
-      await new Promise((r) => setTimeout(r, 800));
+      const res = await fetch(
+        "https://circle-society-apis-f9f3458bda44.herokuapp.com/api/contact/save",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: name.trim(),
+            email: email.trim(),
+            phoneNumber: phone.trim(),
+            reason: message.trim(),
+          }),
+        }
+      );
+      if (!res.ok) throw new Error("Request failed");
       setStatus("success");
       setName("");
       setEmail("");
@@ -50,7 +65,11 @@ export default function ContactForm() {
   const labelClass = "mb-1.5 block text-sm font-medium text-[#1B1B1B]";
 
   return (
-    <form onSubmit={handleSubmit} className={`space-y-5 ${isAr ? "text-right" : ""}`} dir={isAr ? "rtl" : undefined}>
+    <form
+      onSubmit={handleSubmit}
+      className={`space-y-5 ${isAr ? "text-right" : ""}`}
+      dir={isAr ? "rtl" : undefined}
+    >
       <div>
         <label htmlFor="contact-name" className={labelClass}>
           {t("form.name")} <span className="text-[#BF822E]">*</span>
@@ -99,7 +118,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="contact-phone" className={labelClass}>
-          {t("form.phone")} <span className="text-[#9A9590] text-xs font-normal">{t("form.phoneOptional")}</span>
+          {t("form.phone")} <span className="text-[#BF822E]">*</span>
         </label>
         <input
           id="contact-phone"
@@ -110,6 +129,7 @@ export default function ContactForm() {
           placeholder={t("form.placeholderPhone")}
           className={`${inputClass} ${isAr ? "text-right" : ""}`}
           dir={isAr ? "rtl" : undefined}
+          aria-required
           aria-invalid={touched.phone && !!errors.phone}
         />
         {touched.phone && errors.phone && (
@@ -143,12 +163,18 @@ export default function ContactForm() {
       </div>
 
       {status === "success" && (
-        <div className="rounded-xl bg-[#BF822E]/10 border border-[#BF822E]/30 px-4 py-3 text-[#5A4A2A]" role="status">
+        <div
+          className="rounded-xl bg-[#BF822E]/10 border border-[#BF822E]/30 px-4 py-3 text-[#5A4A2A]"
+          role="status"
+        >
           {t("form.success")}
         </div>
       )}
       {status === "error" && (
-        <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-red-700" role="alert">
+        <div
+          className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-red-700"
+          role="alert"
+        >
           {t("form.error")}
         </div>
       )}
