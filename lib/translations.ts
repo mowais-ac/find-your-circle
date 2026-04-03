@@ -213,7 +213,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     "form.errorEmailRequired": "Email is required",
     "form.errorEmailInvalid": "Enter a valid email",
     "form.errorPhoneRequired": "Phone number is required",
+    "form.errorReasonRequired": "Please select a reason",
     "form.errorMessageRequired": "Message is required",
+    "form.reason": "Reason for Contact",
+    "form.reasonPlaceholder": "Select a reason",
 
     // Contact Us page
     "contact.title": "Contact Us",
@@ -589,7 +592,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     "form.errorEmailRequired": "البريد الإلكتروني مطلوب",
     "form.errorEmailInvalid": "أدخل بريداً إلكترونياً صالحاً",
     "form.errorPhoneRequired": "رقم الهاتف مطلوب",
+    "form.errorReasonRequired": "يرجى اختيار سبب التواصل",
     "form.errorMessageRequired": "الرسالة مطلوبة",
+    "form.reason": "سبب التواصل",
+    "form.reasonPlaceholder": "اختر سبباً",
 
     "contact.title": "اتصل بنا",
     "contact.subtitle":
