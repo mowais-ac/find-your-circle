@@ -122,7 +122,10 @@ export default function VideoSection() {
 
             {/* Buttons */}
             <div className="flex flex-row mt-5 md:mt-10 flex-wrap justify-center gap-3 sm:gap-4">
-              <button
+              <a
+                href="https://apps.apple.com/us/app/circle-society/id6761267817"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
                 style={{
                   background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
@@ -130,9 +133,12 @@ export default function VideoSection() {
                 dir={isAr ? "rtl" : "ltr"}
               >
                 {t("hero.downloadIos")}
-              </button>
+              </a>
 
-              <button
+              <a
+                href="https://play.google.com/store/apps/details?id=com.circlesociety"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
                 style={{
                   background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
@@ -140,7 +146,7 @@ export default function VideoSection() {
                 dir={isAr ? "rtl" : "ltr"}
               >
                 {t("hero.downloadAndroid")}
-              </button>
+              </a>
             </div>
           </div>
         </div>

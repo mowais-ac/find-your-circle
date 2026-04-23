@@ -743,7 +743,10 @@ export default function HeroSection() {
                 className={`flex flex-row gap-3 sm:gap-4 ${isAr ? "w-full justify-end" : ""}`}
                 dir="ltr"
               >
-                <button
+                <a
+                  href="https://apps.apple.com/us/app/circle-society/id6761267817"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`rounded-full px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 text-xs min-[400px]:text-sm md:text-base font-semibold text-white transition hover:opacity-90 ${isAr ? "flex-initial" : "flex-1 sm:flex-initial"}`}
                   style={{
                     background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
@@ -751,9 +754,12 @@ export default function HeroSection() {
                   dir={isAr ? "rtl" : "ltr"}
                 >
                   {t("hero.downloadIos")}
-                </button>
+                </a>
 
-                <button
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.circlesociety"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`rounded-full px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 text-xs min-[400px]:text-sm md:text-base font-semibold text-white transition hover:opacity-90 ${isAr ? "flex-initial" : "flex-1 sm:flex-initial"}`}
                   style={{
                     background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
@@ -761,7 +767,7 @@ export default function HeroSection() {
                   dir={isAr ? "rtl" : "ltr"}
                 >
                   {t("hero.downloadAndroid")}
-                </button>
+                </a>
               </div>
             </div>
 
